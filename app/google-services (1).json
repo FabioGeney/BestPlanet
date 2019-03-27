@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "133217762947",
+    "firebase_url": "https://bestplanet-33f55.firebaseio.com",
+    "project_id": "bestplanet-33f55",
+    "storage_bucket": "bestplanet-33f55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133217762947:android:0f7e3d85d45d1b1b",
+        "android_client_info": {
+          "package_name": "com.proyecto.bestplane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133217762947-6os03jtmjod0tgn5pc46ua6ubgcfo3nb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyecto.bestplane",
+            "certificate_hash": "f3c3cbc5d8057955ff51614805e40f4b2efa83cf"
+          }
+        },
+        {
+          "client_id": "133217762947-ta6edp7830jitbes3fl5eu5ks9a7gqbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyecto.bestplane",
+            "certificate_hash": "93443047bff12bece456b88cefba82ed5ff9b0dc"
+          }
+        },
+        {
+          "client_id": "133217762947-tl81u8hdgrb7uk6h4664q86jfn3utbbo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpq9cIsfAR8QginMuCtTWmb1kYGjynNXE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133217762947-tl81u8hdgrb7uk6h4664q86jfn3utbbo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
