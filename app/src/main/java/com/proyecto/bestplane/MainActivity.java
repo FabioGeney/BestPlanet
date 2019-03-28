@@ -1,5 +1,6 @@
 package com.proyecto.bestplane;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,13 +52,20 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             if(radioGroup.getCheckedRadioButtonId()!=-1){
-                                comparaRespuesta(indice);
-                                indice++;
+
                                 if(indice < preguntas.size()){
-                                    cambiarPregunta(indice);
-                                }else {
-                                    double calificacion = 5*(respuestasCorrectas/preguntas.size());
-                                    Toast.makeText(MainActivity.this, ""+ calificacion + " " + indice + " " + respuestasCorrectas, Toast.LENGTH_SHORT).show();
+                                    comparaRespuesta(indice);
+                                    indice++;
+                                    int p = indice;
+                                    if (p<preguntas.size()){
+                                        cambiarPregunta(indice);
+                                    }else {
+                                        button.setText("Finalizar");
+                                        Intent intent = new Intent(MainActivity.this, Calificacion.class);
+                                        intent.putExtra("rCorrectas", respuestasCorrectas);
+                                        intent.putExtra("totalPreguntas", preguntas.size());
+                                        startActivity(intent);
+                                    }
                                 }
                                 button.setBackgroundColor(getResources().getColor(R.color.colorBoton));
                             }
@@ -73,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void guardarPreguntas(){
 
-        preguntas.add(new Residuo("Papel", "Reciclable",R.drawable.ico));
+        preguntas.add(new Residuo("Papel", "Reciclable",R.drawable.papel));
         preguntas.add(new Residuo("Baterias", "Peligroso",R.drawable.bat));
-        preguntas.add(new Residuo("Jeringa", "Peligroso",R.drawable.ico));
-        preguntas.add(new Residuo("Icopor", "Reciclable",R.drawable.bat));
+        preguntas.add(new Residuo("Jeringa", "Peligroso",R.drawable.jeringa));
+        preguntas.add(new Residuo("Icopor", "Reciclable",R.drawable.ico));
     }
 
     private void comparaRespuesta( int index){
@@ -92,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
             Picasso.with(MainActivity.this).load(residuo.getImagen()).fit().into(imageView);
             if(text.equals(residuo.getTipo())){
                 respuestasCorrectas++;
-                Toast.makeText(MainActivity.this, " gj "+ index, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, " bien "+ index, Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(MainActivity.this, "bj", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "mal", Toast.LENGTH_SHORT).show();
             }
             progressBar.incrementProgressBy(25);
             radioGroup.clearCheck();

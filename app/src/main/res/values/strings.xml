@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BestPlane</string>
+    <string name="app_name">BestPlanet</string>
     <string name="crear_cuenta2">Crear Cuenta</string>
     <string name="hint_nombres">Nombres</string>
     <string name="hint_apellidos">Apellidos</string>
