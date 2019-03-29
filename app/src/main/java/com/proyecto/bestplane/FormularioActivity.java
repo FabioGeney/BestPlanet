@@ -51,12 +51,15 @@ public class FormularioActivity extends AppCompatActivity {
         edtcodigo = findViewById(R.id.edtcodigo);
         btncrearcuenta = findViewById(R.id.btncrearcuenta);
 
-        initialize();
+
 
         btncrearcuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cuentanueva();
+                Intent intent = new Intent(FormularioActivity.this, MainActivity.class);
+                intent.putExtra("nombnre", edtnombres.getText().toString() );
+                intent.putExtra("codigo", edtcodigo.getText().toString());
+                startActivity(intent);
             }
         });
 
@@ -66,31 +69,6 @@ public class FormularioActivity extends AppCompatActivity {
 
     }
 
-    private void initialize(){
-        firebaseAuth = FirebaseAuth.getInstance();
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                if (firebaseUser != null){
-                    Log.w(TAG, "onAuthStateChanged - inició sesión" + firebaseUser.getUid());
-                    Log.w(TAG, "onAuthStateChanged - inició sesión" + firebaseUser.getEmail());
-                } else {
-                    Log.w(TAG, "onAuthStateChanged - cerró sesión");
-                }
-            }
-        };
-    }
-
-    private void cuentanueva(){
-        String nombres = edtnombres.getText().toString();
-        String codigo = edtcodigo.getText().toString();
-
-            final Map<String, Object> user = new HashMap<>();
-            user.put("nombre",nombres);
-            user.put("celular",codigo);
-            db.collection("user").document().set(user);
-    }
 
     private TextWatcher loginTextWatcher = new TextWatcher() {
         @Override
@@ -107,7 +85,6 @@ public class FormularioActivity extends AppCompatActivity {
             if(!nombresentrada.isEmpty() && !codigoentrada.isEmpty()){
                 btncrearcuenta.setBackgroundColor(getResources().getColor(R.color.colorPrimary2));
             }else {
-
 
             }
         }
