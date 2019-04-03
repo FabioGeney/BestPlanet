@@ -52,6 +52,11 @@ public class Calificacion extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
     private void guardaTips(){
 
         tips.add("Antes de comprar un producto, hazte la pregunta si realmente lo necesitas.\n" +

@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.setTitle("Test");
+        this.setTitle("Test Ecológico");
 
 
-        setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.imagen);
         button = findViewById(R.id.boton);
         radioGroup = findViewById(R.id.radioGroup);
@@ -95,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
                     });
             }
         });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 

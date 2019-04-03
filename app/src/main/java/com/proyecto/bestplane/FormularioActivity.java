@@ -1,13 +1,18 @@
 package com.proyecto.bestplane;
 
+        import android.content.DialogInterface;
         import android.content.Intent;
         import android.support.annotation.NonNull;
+        import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.support.v7.widget.Toolbar;
         import android.text.Editable;
         import android.text.TextWatcher;
         import android.util.Log;
+        import android.view.Menu;
+        import android.view.MenuInflater;
+        import android.view.MenuItem;
         import android.view.MotionEvent;
         import android.view.View;
         import android.widget.Button;
@@ -44,7 +49,6 @@ public class FormularioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.setTitle("Comencemos");
 
         edtnombres =findViewById(R.id.edtnombres);
@@ -69,6 +73,32 @@ public class FormularioActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.opciones:
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setTitle("Acerca de");
+                alert.setMessage("Esta aplicación fue desarrollada por el estudiante de ingeniería de sistemas, Fabio Andres Geney Barros. Para la CÁTEDRA RODOLFO LOW MAUS: EDUCACIÓN EN CAMBIO CLIMÁTICO II-2018.\n");
+                alert.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alert.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     private TextWatcher loginTextWatcher = new TextWatcher() {
         @Override
